@@ -59,7 +59,7 @@ button.on("click", function () {
     var filteredData = tableData.filter(tableData => tableData.datetime === dateEntry);
     console.log(filteredData);
 
-
+    
     // remove any data from the table
     tbody.html("");
 
@@ -80,10 +80,7 @@ button.on("click", function () {
             // Step 5: Use d3 to update each cell's text with
             // ufo report values (date, city, state, country, shape, duration, comments)
             cell.text(value);
-            //Prevent the page from refreshing
-
         });
-        d3.event.preventDefault();
     });
 
 });
