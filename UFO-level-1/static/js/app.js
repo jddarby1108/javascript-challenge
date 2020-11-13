@@ -59,4 +59,28 @@ button.on("click", function () {
     var filteredData = tableData.filter(tableData => tableData.datetime === dateEntry);
     console.log(filteredData);
 
+    
+    // remove any data from the table
+    tbody.html("");
+
+    // Step 1: Loop Through `data` and log each filtered ufo report object
+    filteredData.forEach(sighting => {
+        console.log(sighting);
+
+        // Step 2:  Use d3 to append one table row `tr` for each ufo report object
+        var row = tbody.append("tr");
+
+        // Step 3:  Use `Object.entries` to log each ufo report value
+        Object.entries(sighting).forEach(([key, value]) => {
+            console.log(key, value);
+
+            // Step 4: Use d3 to append 1 cell per ufo report value (date, city, state, country, shape, duration, comments)
+            var cell = row.append("td");
+
+            // Step 5: Use d3 to update each cell's text with
+            // ufo report values (date, city, state, country, shape, duration, comments)
+            cell.text(value);
+        });
+    });
+
 });
