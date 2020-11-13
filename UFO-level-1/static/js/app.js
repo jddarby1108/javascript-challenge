@@ -53,10 +53,10 @@ function handleClick() {
 
 
 button.on("click", function () {
-   var dateEntry = d3.select("#datetime").node().value;
-    console.log(dateEntry)
+    var dateEntry = d3.select("#datetime").node().value;
+    console.log(dateEntry);
+
+    var filteredData = tableData.filter(tableData => tableData.datetime === dateEntry);
+    console.log(filteredData);
+
 });
-
-
-
-
