@@ -56,15 +56,21 @@ button.on("click", function () {
     var dateEntry = d3.select("#datetime").node().value;
     console.log(dateEntry);
 
+    var cityEntry = d3.select("#city").node().value;
+    console.log(cityEntry);
+
     var filteredData = tableData.filter(tableData => tableData.datetime === dateEntry);
     console.log(filteredData);
 
-    
+    var filterDataDateCity = filteredData.filter(filteredData => filteredData.city === cityEntry.toLowerCase());
+    console.log(filterDataDateCity);
+
+
     // remove any data from the table
     tbody.html("");
 
     // Step 1: Loop Through `data` and log each filtered ufo report object
-    filteredData.forEach(sighting => {
+    filterDataDateCity.forEach(sighting => {
         console.log(sighting);
 
         // Step 2:  Use d3 to append one table row `tr` for each ufo report object
